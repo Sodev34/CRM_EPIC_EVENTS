@@ -5,7 +5,7 @@ from django.db.models.signals import post_migrate
 from django.dispatch import receiver
 
 TEAM_LIMIT = 3
-MANAGEMENT = "MANAGEMENT"
+#MANAGEMENT = "MANAGEMENT"
 #SALES = "SALES"
 #SUPPORT = "SUPPORT"    
 
@@ -59,7 +59,7 @@ class User(AbstractUser):
         return f"User {self.id} is {self.username}"
 
     def save(self, *args, **kwargs):
-        self.is_superuser = self.is_staff = self.team.name == MANAGEMENT
+        self.is_superuser = self.is_staff = self.team_id == 1
         return super().save(*args, **kwargs)
 
    
