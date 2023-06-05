@@ -4,7 +4,6 @@ ____
 ## Lancer le programme sous Python 3.9.12 :
 
 ### 1. Récupérer le projet :
-https://github.com/Sodev34/CRM_EPIC_EVENTS.git
 
      git clone https://github.com/Sodev34/CRM_EPIC_EVENTS.git
 
@@ -21,6 +20,11 @@ https://github.com/Sodev34/CRM_EPIC_EVENTS.git
 ### 4. Installer les dépendances :
 
      pip install -r requirements.txt
+
+### 5. Créer une base de données PostgreSQL :
+
+     Une base de donnée postgre SQL au nom de "epic_events_db" doit être créer dans postgres. </br>
+     Le serveur postgres doit être lancé : https://www.postgresql.org/docs/
 
 ### 5. Créer un super user :
 
