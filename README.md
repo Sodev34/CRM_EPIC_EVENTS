@@ -4,12 +4,13 @@ ____
 ## Lancer le programme sous Python 3.9.12 :
 
 ### 1. Récupérer le projet :
+https://github.com/Sodev34/CRM_EPIC_EVENTS.git
 
-     git clone https://github.com/Sodev34/Developpez-une-application-Web-en-utilisant-Django.git
+     git clone https://github.com/Sodev34/CRM_EPIC_EVENTS.git
 
 ### 2. Dans un terminal, aller dans le dossier de l'application :
 
-     cd Developpez-une-application-Web-en-utilisant-Django
+     cd CRM_EPIC_EVENTS
        
 ### 3. Créer et activer un environnement virtuel :
 
@@ -23,7 +24,7 @@ ____
 
 ### 5. Créer un super user :
 
-     cd LITReview 
+     cd CRM_EPIC_EVENTS 
 
      python3 manage.py createsuperuser
      
