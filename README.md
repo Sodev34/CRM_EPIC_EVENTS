@@ -23,25 +23,23 @@ ____
 
 ### 5. Créer une base de données PostgreSQL :
 
-     Une base de donnée postgre SQL au nom de "epic_events_db" doit être créer dans postgres. </br>
+     Une base de donnée postgre SQL au nom de "epic_events_db" doit être créer. 
      Le serveur postgres doit être lancé : https://www.postgresql.org/docs/
 
-### 5. Créer un super user :
+### 6. Créer un super user :
 
      cd CRM_EPIC_EVENTS 
 
      python3 manage.py createsuperuser
      
-### 6. Démarrer le serveur : 
+### 7. Démarrer le serveur : 
 
      python3 manage.py runserver 
 
-### 7. Naviguer vers le site :
+### 8. Naviguer dans l'espace d'administration :
 
-    Ouvrir un navigateur, et aller à l'adresse du site : http://127.0.0.1:8000/
+     Ouvrir un navigateur, et aller à l'adresse du site : http://127.0.0.1:8000/admin/
+    
+     Rentrer les identifiants du superuser pour se connecter en tant qu'administrateur
 
-    Nom d'utilisateur : MAXIM
-    Mot de passe : MAXIM123456
-
-    Nom d'utilisateur :LUCA
-    Mot de passe : LUCA1234
+### 9. Documentation :
