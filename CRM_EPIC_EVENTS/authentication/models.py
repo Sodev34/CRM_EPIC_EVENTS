@@ -21,7 +21,8 @@ class Team(models.Model):
 
     def delete(self):
         raise PermissionDenied("You are not permitted to delete teams.")
-    
+
+
 @receiver(post_migrate)
 def create_teams(sender, **kwargs):
     teams_to_create = ["MANAGEMENT", "SALES", "SUPPORT"]
@@ -29,7 +30,7 @@ def create_teams(sender, **kwargs):
     for team_name in teams_to_create:
         if not Team.objects.filter(name=team_name).exists():
             team = Team(name=team_name)
-            team.save()    
+            team.save()
 
 
 class Statut(models.Model):
@@ -37,7 +38,7 @@ class Statut(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def save(self, *args, **kwargs):
         if self.pk is None and Team.objects.count() >= STATUT_LIMIT:
             raise PermissionDenied("You are not permitted to create statuts.")
@@ -45,7 +46,7 @@ class Statut(models.Model):
 
     def delete(self):
         raise PermissionDenied("You are not permitted to delete statuts.")
-    
+
 
 @receiver(post_migrate)
 def create_statuts(sender, **kwargs):
@@ -54,7 +55,7 @@ def create_statuts(sender, **kwargs):
     for statut_name in statuts_to_create:
         if not Statut.objects.filter(name=statut_name).exists():
             statut = Statut(name=statut_name)
-            statut.save() 
+            statut.save()
 
 
 class User(AbstractUser):
@@ -67,5 +68,3 @@ class User(AbstractUser):
     def save(self, *args, **kwargs):
         self.is_superuser = self.is_staff = self.team_id == 1
         return super().save(*args, **kwargs)
-
-   

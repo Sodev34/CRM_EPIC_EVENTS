@@ -1,7 +1,7 @@
 from rest_framework import permissions
 
+
 class ClientPermission(permissions.BasePermission):
-    
     def has_permission(self, request, view):
         team_id = request.user.team_id
 
@@ -14,7 +14,6 @@ class ClientPermission(permissions.BasePermission):
         else:
             return False
 
-
     def has_object_permission(self, request, view, obj):
         if request.user.team_id == 1:
             return True
@@ -24,9 +23,9 @@ class ClientPermission(permissions.BasePermission):
             return True
         else:
             return False
+
 
 class ContractPermission(permissions.BasePermission):
-
     def has_permission(self, request, view):
         team_id = request.user.team_id
 
@@ -38,7 +37,7 @@ class ContractPermission(permissions.BasePermission):
             return True
         else:
             return False
-    
+
     def has_object_permission(self, request, view, obj):
         if request.user.team_id == 1:
             return True
@@ -47,10 +46,10 @@ class ContractPermission(permissions.BasePermission):
         elif obj.sales_contact == request.user:
             return True
         else:
-            return False  
+            return False
+
 
 class EventPermission(permissions.BasePermission):
-    
     def has_permission(self, request, view):
         team_id = request.user.team_id
 
@@ -72,4 +71,3 @@ class EventPermission(permissions.BasePermission):
             return True
         else:
             return False
-  

@@ -5,10 +5,10 @@ from epicevents.views import ClientViewSet, ContractViewSet, EventViewSet
 
 
 router = DefaultRouter()
-router.register(r'clients', ClientViewSet)
-router.register(r'contracts', ContractViewSet)
-router.register(r'events', EventViewSet)
+router.register(r"clients", ClientViewSet)
+router.register(r"contracts", ContractViewSet)
+router.register(r"events", EventViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),   
+    path("", include(router.urls)),
 ]
