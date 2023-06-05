@@ -35,7 +35,7 @@ class Contract(models.Model):
 
 
 class Event(models.Model):
-    contract = models.OneToOneField(to=Client, on_delete=models.CASCADE, primary_key=True)
+    contract = models.OneToOneField(to=Contract, on_delete=models.CASCADE, primary_key=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True, blank=True, null=True)
     support_contact = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, blank=True, null=True)
@@ -45,7 +45,7 @@ class Event(models.Model):
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f"Event of contract {self.contract.id}  : Support {self.support_contact.id} - Client {self.client.id}"
+        return f"Event of contract {self.contract.id}  : Support {self.support_contact.id} "
         
 
 

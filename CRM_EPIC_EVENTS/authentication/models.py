@@ -5,9 +5,7 @@ from django.db.models.signals import post_migrate
 from django.dispatch import receiver
 
 TEAM_LIMIT = 3
-#MANAGEMENT = "MANAGEMENT"
-#SALES = "SALES"
-#SUPPORT = "SUPPORT"    
+STATUT_LIMIT = 3
 
 
 class Team(models.Model):
@@ -39,6 +37,14 @@ class Statut(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        if self.pk is None and Team.objects.count() >= STATUT_LIMIT:
+            raise PermissionDenied("You are not permitted to create statuts.")
+        super().save(*args, **kwargs)
+
+    def delete(self):
+        raise PermissionDenied("You are not permitted to delete statuts.")
     
 
 @receiver(post_migrate)
