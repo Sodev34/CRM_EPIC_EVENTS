@@ -1,9 +1,10 @@
 from rest_framework import permissions
 from rest_framework.viewsets import ModelViewSet
-
 from .serializers import ClientSerializer, ContractSerializer, EventSerializer
 from .models import Client, Contract, Event
 from .permissions import ClientPermission, ContractPermission, EventPermission
+
+
 
 
 class ClientViewSet(ModelViewSet):
