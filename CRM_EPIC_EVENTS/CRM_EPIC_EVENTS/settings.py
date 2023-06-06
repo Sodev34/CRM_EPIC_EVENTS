@@ -180,4 +180,3 @@ LOGGING = {
         "level": "ERROR",
     },
 }
-
