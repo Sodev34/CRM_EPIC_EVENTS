@@ -43,3 +43,5 @@ ____
      Rentrer les identifiants du superuser pour se connecter en tant qu'administrateur
 
 ### 9. Documentation :
+     
+     https://documenter.getpostman.com/view/24417977/2s93sZ7ZqZ
