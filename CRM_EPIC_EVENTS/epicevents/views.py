@@ -5,8 +5,6 @@ from .models import Client, Contract, Event
 from .permissions import ClientPermission, ContractPermission, EventPermission
 
 
-
-
 class ClientViewSet(ModelViewSet):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer

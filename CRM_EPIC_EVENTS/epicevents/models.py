@@ -23,7 +23,7 @@ class Client(models.Model):
 
 class Contract(models.Model):
     sales_contact = models.ForeignKey(
-        to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True 
+        to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True
     )
     client = models.ForeignKey(
         to=Client, on_delete=models.SET_NULL, blank=True, null=True
@@ -41,7 +41,7 @@ class Contract(models.Model):
 class Event(models.Model):
     contract = models.OneToOneField(
         to=Contract, on_delete=models.CASCADE, primary_key=True
-     )
+    )
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True, blank=True, null=True)
     support_contact = models.ForeignKey(
@@ -54,4 +54,3 @@ class Event(models.Model):
 
     def __str__(self):
         return f"Event of contract {self.contract.id}  : Support {self.support_contact.id} "
-
