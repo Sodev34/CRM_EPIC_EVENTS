@@ -23,7 +23,7 @@ ____
 
 ### 5. Créer une base de données PostgreSQL :
 
-     Une base de donnée postgre SQL au nom de "epic_events_db" doit être créer. 
+     Une base de donnée postgre SQL au nom de "epic_db" doit être créer. 
      Le serveur postgres doit être lancé : https://www.postgresql.org/docs/
 
 ### 6. Créer un super user :
