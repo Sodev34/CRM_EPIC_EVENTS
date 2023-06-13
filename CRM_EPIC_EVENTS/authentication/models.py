@@ -5,7 +5,7 @@ from django.db.models.signals import post_migrate
 from django.dispatch import receiver
 
 TEAM_LIMIT = 3
-STATUT_LIMIT = 3
+STATUS_LIMIT = 3
 
 
 class Team(models.Model):
@@ -33,29 +33,32 @@ def create_teams(sender, **kwargs):
             team.save()
 
 
-class Statut(models.Model):
+class EventStatus(models.Model):
     name = models.CharField(max_length=20)
+
+    class Meta:
+        verbose_name_plural = "Event Status"
 
     def __str__(self):
         return self.name
 
     def save(self, *args, **kwargs):
-        if self.pk is None and Team.objects.count() >= STATUT_LIMIT:
-            raise PermissionDenied("You are not permitted to create statuts.")
+        if self.pk is None and EventStatus.objects.count() >= STATUS_LIMIT:
+            raise PermissionDenied("You are not permitted to create statuses.")
         super().save(*args, **kwargs)
 
     def delete(self):
-        raise PermissionDenied("You are not permitted to delete statuts.")
+        raise PermissionDenied("You are not permitted to delete statuses.")
 
 
 @receiver(post_migrate)
-def create_statuts(sender, **kwargs):
-    statuts_to_create = ["IN PROGRESS", "COMPLETED", "PENDING"]
+def create_event_status(sender, **kwargs):
+    status_to_create = ["IN PROGRESS", "COMPLETED", "PENDING"]
 
-    for statut_name in statuts_to_create:
-        if not Statut.objects.filter(name=statut_name).exists():
-            statut = Statut(name=statut_name)
-            statut.save()
+    for status_name in status_to_create:
+        if not EventStatus.objects.filter(name=status_name).exists():
+            status = EventStatus(name=status_name)
+            status.save()
 
 
 class User(AbstractUser):

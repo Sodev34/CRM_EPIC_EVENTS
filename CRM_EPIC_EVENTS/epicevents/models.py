@@ -1,5 +1,5 @@
 from django.db import models
-from authentication.models import Statut
+from authentication.models import EventStatus
 
 from django.conf import settings
 
@@ -30,7 +30,7 @@ class Contract(models.Model):
     )
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True, blank=True, null=True)
-    status = models.ForeignKey(Statut, on_delete=models.PROTECT, default=1)
+    status = models.BooleanField(default=False)
     amount = models.FloatField(blank=True, null=True)
     payment_due = models.DateField(blank=True, null=True)
 
@@ -47,7 +47,7 @@ class Event(models.Model):
     support_contact = models.ForeignKey(
         to=settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, blank=True, null=True
     )
-    event_status = models.BooleanField(default=False)
+    event_status = models.ForeignKey(to=EventStatus, on_delete=models.PROTECT, default=1) 
     attendees = models.IntegerField(blank=True, null=True)
     event_date = models.DateTimeField(blank=True, null=True)
     notes = models.TextField(blank=True, null=True)

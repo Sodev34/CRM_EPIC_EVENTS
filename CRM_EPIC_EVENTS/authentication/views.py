@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework import permissions
-from .models import User, Team, Statut
-from .serializers import UserSerializer, TeamSerializer, StatutSerializer
+from .models import User, Team, EventStatus
+from .serializers import UserSerializer, TeamSerializer, EventStatusSerializer
 
 from .permissions import AccesPermission
 
@@ -18,7 +18,7 @@ class TeamViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated, AccesPermission]
 
 
-class StatutViewSet(viewsets.ModelViewSet):
-    queryset = Statut.objects.all()
-    serializer_class = StatutSerializer
+class EventStatusViewSet(viewsets.ModelViewSet):
+    queryset = EventStatus.objects.all()
+    serializer_class = EventStatusSerializer
     permission_classes = [permissions.IsAuthenticated, AccesPermission]

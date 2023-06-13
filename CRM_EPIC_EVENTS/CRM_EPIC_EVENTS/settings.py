@@ -96,7 +96,7 @@ REST_FRAMEWORK = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "epic_events_db",
+        "NAME": "epic_db",
         "USER": "postgres",
         "PASSWORD": "Ismail34000",
         "HOST": "localhost",

@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
-from .models import User, Team, Statut
+from .models import User, Team, EventStatus
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -34,7 +34,7 @@ class TeamSerializer(serializers.ModelSerializer):
         fields = ["id", "name"]
 
 
-class StatutSerializer(serializers.ModelSerializer):
+class EventStatusSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Statut
+        model = EventStatus
         fields = ["id", "name"]
