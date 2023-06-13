@@ -47,7 +47,9 @@ class Event(models.Model):
     support_contact = models.ForeignKey(
         to=settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, blank=True, null=True
     )
-    event_status = models.ForeignKey(to=EventStatus, on_delete=models.PROTECT, default=1) 
+    event_status = models.ForeignKey(
+        to=EventStatus, on_delete=models.PROTECT, default=1
+    )
     attendees = models.IntegerField(blank=True, null=True)
     event_date = models.DateTimeField(blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
